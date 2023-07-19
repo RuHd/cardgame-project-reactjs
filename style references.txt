@@ -1,0 +1,13 @@
+## Colors ##
+
+Text color:  #8C56A1
+
+Game Background Color:  #333333
+
+Card color : #EADCB8
+
+## FONT STYLE ##
+
+Card name : Amatic SC Bold 700
+Card Text : Bangers regular 400
+Outter texts: Chewy
