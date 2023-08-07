@@ -7,7 +7,7 @@ import song from '../assets/Songs/genesis-cinematic-ambience-background-music-12
 const Introscreen = ({startGameFunction}) => {
     return (
         <div className="intro--screen">
-            <audio autoPlay src={song} loop>
+            <audio src={song} loop autoPlay>
                 Song not supported on this browser
             </audio>
             <h1>Corruption Animal Purge</h1>
