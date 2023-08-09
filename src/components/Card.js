@@ -4,7 +4,7 @@ import flipSound from '../assets/SFX/sliding-card-sound.mp3'
 import { generateAttackPts } from '../utils/functions'
 
 
-const Card = ({clicked,setclicked,cardName,animalImg,animalIcon,isPlayer,cardId,setCardEnemy,setCardPlayer, attackPts, selectedCardEnemy, selectedCardPlayer}) => {
+const Card = ({cardName,animalImg,animalIcon,isPlayer,cardId,setCardEnemy,setCardPlayer, attackPts, selectedCardEnemy, selectedCardPlayer}) => {
 
     const playFlipCardSound = () => {
         new Audio(flipSound).play()

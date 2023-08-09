@@ -26,7 +26,10 @@ const Board = () => {
     const [totalLost, settotalLost] = useState(0)
     const [cardClicked, setcardClicked] = useState(false)
 
+    
 
+
+    //Function to create random cards for each oponent
     const shufflePlayersHand = () => {
         const imgEvil = generateCards(galleryEvil).filter((cardImg,index) => {
             if (index <= 4) return cardImg
@@ -50,25 +53,14 @@ const Board = () => {
     
     // Function to create the battle system: If the player's card attack is greater, then it'll receives +1 totalWins on the state
     const handleDuel = () => {
-        if (totalWins + totalLost == 5) { // Check if all cards were played
-            
-            if (totalWins > totalLost) {
-                alert("Congratulation! You have cleansed the animal kingdom!")
-            } else alert("You have lost! Try again!!!!")    
-            
-            settotalWins(0)
-            settotalLost(0)
-
-            return
-        }
-        
         if((selectedCardEnemy.cardId !== 0) && (selectedCardPlayer.cardId !== 0) ) {
+
             if (selectedCardPlayer.attackPts > selectedCardEnemy.attackPts) {
                     settotalWins(() => totalWins + 1)                   
             } else {
                 settotalLost(() => totalLost + 1) 
             }
-            console.log(totalWins,totalLost)
+
             setplayerHand(playerHand.map((card) => {
                 if (card.id == selectedCardPlayer.cardId) {
                     return undefined
@@ -87,16 +79,21 @@ const Board = () => {
                 if (card !== undefined) return card
             }))
 
-            setselectedCardPlayer(null)
-            setselectedCardEnemy(null)
+            setselectedCardPlayer({cardId: 0, attackPts: 0})
+            setselectedCardEnemy({cardId: 0, attackPts: 0})
             setcardClicked(false)
-
-            
-
         } else {
-            alert("Select your card and an enemy card to battle!")
+            alert("Select your card and an enemy card to battle!") // If both cards are not selected
         }
+
+        console.log(totalWins,totalLost)
     }
+
+    // if (totalWins + totalLost == 5) {
+
+    //     if (totalWins>5) alert("Congratulations! You have cleansed the animal kingdom")
+    //     else alert("You lost! Try Again!")
+    // }
    
     useEffect(() => {
         shufflePlayersHand()

@@ -8,7 +8,7 @@ const Introscreen = ({startGameFunction}) => {
     const [music, setmusic] = useState(song)
 
     useEffect(() => {
-      new Audio(music).play()
+    //   new Audio(music).play()
     }, [])
     
     return (
