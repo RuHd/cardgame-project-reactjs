@@ -1,30 +1,27 @@
-import React, { useState} from 'react'
+import React, { useState, useMemo} from 'react'
 import './styles/card.scss'
 import flipSound from '../assets/SFX/sliding-card-sound.mp3'
 import { generateAttackPts } from '../utils/functions'
 
 
-const Card = ({cardName,animalImg,animalIcon,isPlayer,cardId,setCardEnemy,setCardPlayer}) => {
-    const atk = generateAttackPts()
-    const [attackPts, setattackPts] = useState(atk)
+const Card = ({clicked,setclicked,cardName,animalImg,animalIcon,isPlayer,cardId,setCardEnemy,setCardPlayer, attackPts, selectedCardEnemy, selectedCardPlayer}) => {
+
     const playFlipCardSound = () => {
         new Audio(flipSound).play()
     }
-
     const handleClick = () => {
-        console.log("clicked")
         if (isPlayer) {
-            setCardPlayer({cardId,attackPts})
-
+            setCardPlayer({cardId: cardId, attackPts: attackPts})
+            console.log(selectedCardPlayer)
         } else {
-            setCardEnemy({cardId,attackPts})
+            setCardEnemy({cardId: cardId, attackPts: attackPts})
         }
-
-        
+    
+         
     }
 
     return (
-        <div className= "card" onClick={() => handleClick()} onMouseEnter={() => playFlipCardSound()}>
+        <div className= {`${ (selectedCardPlayer.cardId == cardId || selectedCardEnemy.cardId == cardId) ? "clickedCard" : ""} card`} onClick={() => handleClick()} onMouseEnter={() => playFlipCardSound()}>
             <img src={animalIcon} className='icon'/>
             <h2>{cardName}</h2>
             <img src={animalImg}/>

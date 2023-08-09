@@ -73,3 +73,9 @@
 .playerCardSelected {
     border: 2px solid blue;
 }
+
+.clickedCard {
+    border: 3px solid red;
+    transform: scale(1.5);
+    z-index: 2;
+}

@@ -16,3 +16,35 @@ export const generateCards = (arr) => {
 
     return arr
 }
+
+// export const startDuel = (cardPlayer, cardEnemy,wins,losses,changeCardPlayer,changeCardEnemy) => {
+//     if((cardEnemy !== null) && (cardPlayer !== null) ) {
+//         if (selectedCardPlayer.attackPts > cardEnemy.attackPts) {
+//                 settotalWins(() => totalWins + 1)                   
+//         } else {
+//             settotalLost(() => totalLost + 1) 
+//         }
+
+//         setplayerHand(playerHand.forEach((value,id) => {
+//             if (id !== selectedCardPlayer.cardId) {
+//                 return value
+//             }
+//         }))
+
+//         setenemyHand(enemyHand.forEach((value,id) => {
+//             if (id !== cardEnemy.cardId) {
+//                 return value
+//             }
+//         }))
+
+//         changeCardPlayer(null)
+//         changeCardEnemy(null)
+
+//     } else if (playerHand.length == 0) { // Check if all cards were played
+//         if (totalWins > totalLost) {
+//             alert("Congratulation! You have cleansed the animal kingdom!")
+//         } else alert("You have lost! Try again!!!!")
+
+        
+//     }
+// }
