@@ -75,7 +75,33 @@
 }
 
 .clickedCard {
-    border: 3px solid red;
+    position: relative;
     transform: scale(1.5);
     z-index: 2;
+   
+}
+
+.clickedCard::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid red;
+    animation-name: cardSelected;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes cardSelected {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: translateY(1.5);
+    }
+    
 }
