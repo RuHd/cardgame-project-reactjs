@@ -26,8 +26,6 @@ const Board = () => {
     const [totalLost, settotalLost] = useState(0)
     const [cardClicked, setcardClicked] = useState(false)
 
-    
-
 
     //Function to create random cards for each oponent
     const shufflePlayersHand = () => {
@@ -50,6 +48,8 @@ const Board = () => {
 
     //Function to reset the game
     const resetGame = () => setReset(!reset)
+
+   
     
     // Function to create the battle system: If the player's card attack is greater, then it'll receives +1 totalWins on the state
     const handleDuel = () => {
@@ -82,18 +82,13 @@ const Board = () => {
             setselectedCardPlayer({cardId: 0, attackPts: 0})
             setselectedCardEnemy({cardId: 0, attackPts: 0})
             setcardClicked(false)
+
         } else {
             alert("Select your card and an enemy card to battle!") // If both cards are not selected
         }
 
         console.log(totalWins,totalLost)
     }
-
-    // if (totalWins + totalLost == 5) {
-
-    //     if (totalWins>5) alert("Congratulations! You have cleansed the animal kingdom")
-    //     else alert("You lost! Try Again!")
-    // }
    
     useEffect(() => {
         shufflePlayersHand()
@@ -107,12 +102,15 @@ const Board = () => {
     return (
         <div className='board' >
             <Score wins={totalWins} losses={totalLost}/>
-            <button onClick={() => resetGame()}>
-                Reset Game
-            </button>
-            <button onClick={() => handleDuel()}>
-                Start Battle
-            </button>
+            <section className='btn-options'>
+                <button onClick={() => resetGame()}>
+                    Reset Game
+                </button>
+                <button onClick={() => handleDuel()}>
+                    Start Battle
+                </button>
+            </section>
+    
             <section className='enemySpot'>
                 {enemyHand.map((obj,index) => {
                     if (obj !== undefined)

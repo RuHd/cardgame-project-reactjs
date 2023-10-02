@@ -2,6 +2,7 @@ import React, { useState, useMemo} from 'react'
 import './styles/card.scss'
 import flipSound from '../assets/SFX/sliding-card-sound.mp3'
 import { generateAttackPts } from '../utils/functions'
+import leafBorder from '../borderLeaft.svg'
 
 
 const Card = ({cardName,animalImg,animalIcon,isPlayer,cardId,setCardEnemy,setCardPlayer, attackPts, selectedCardEnemy, selectedCardPlayer}) => {
@@ -22,6 +23,7 @@ const Card = ({cardName,animalImg,animalIcon,isPlayer,cardId,setCardEnemy,setCar
 
     return (
         <div className= {`${ (selectedCardPlayer.cardId == cardId || selectedCardEnemy.cardId == cardId) ? "clickedCard" : ""} card`} onClick={() => handleClick()} onMouseEnter={() => playFlipCardSound()}>
+            <img src={leafBorder} className='leafBorder'/>
             <img src={animalIcon} className='icon'/>
             <h2>{cardName}</h2>
             <img src={animalImg}/>

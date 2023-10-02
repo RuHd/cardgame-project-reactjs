@@ -9,14 +9,24 @@
     width: 250px;
     height: 350px;
     font-family: "bangers";
-    padding: 0 5px;
     border-radius: 5px;
     transition: .3s;
     transform: scale(1);
+    overflow: hidden;
 
     img {
         width: 100%;
         height: 65%;
+    }
+
+    .leafBorder {
+        position: absolute;
+        z-index: 10;
+        bottom: -50px;
+        right: 0;
+        width: 50px;
+        transform: scale(3);
+
     }
 
     .icon {
@@ -32,11 +42,13 @@
         letter-spacing: 1.5px;
         border: 2px solid black;
         width: 100%;
+        margin: 0 20px;
     }
 
     span {
         font-size: 1.5em;
     }
+
 }
 
 .card:hover {
@@ -46,12 +58,14 @@
 }
 
 .attack {
+    position: relative;
     width: 70%;
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 3px solid black;
+    border-bottom: none;
 
 
     span:nth-child(2) {
